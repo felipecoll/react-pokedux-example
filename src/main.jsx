@@ -7,7 +7,9 @@ import { legacy_createStore as createStore } from 'redux'
 import App from './App.jsx'
 
 
-const store = createStore(pokemonsReducer)
+//Agregado de lineas, extensiones para ver redux en google chrome y detectar efectos y accionesd de redux
+
+const store = createStore(pokemonsReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 createRoot(document.getElementById('root')).render(
 
   <StrictMode>
