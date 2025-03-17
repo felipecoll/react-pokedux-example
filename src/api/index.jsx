@@ -1,15 +1,20 @@
 import axios from 'axios';
 
-  const getPokemons = async () => {
-	try {
-		const { data } = await axios.get(
-			'https://pokeapi.co/api/v2/pokemon?limit=151'
-		);
-		//console.log(data.results);
-		return data.results;
-	} catch (error) {
-		console.error('There was an error: ', error);
+export const getPokemon = async () => {
+  try {
+		const res = await axios
+			.get('https://pokeapi.co/api/v2/pokemon?limit=151');
+		return res.data.results;
+	} catch (err) {
+		return console.log(err);
 	}
 };
 
-export default getPokemons
+export const getPokemonDetails = async (pokemon) => {
+  try {
+		const res = await axios.get(pokemon.url);
+		return res.data;
+	} catch (err) {
+		return console.log(err);
+	}
+}
