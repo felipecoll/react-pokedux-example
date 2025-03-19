@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card } from 'antd';
 import Meta from 'antd/lib/card/Meta';
-import { StarOutlined } from '@ant-design/icons';
+import StarButton from './StarButton';
+
 
 const Pokecard = ({name, image, types}) => {
 
@@ -12,7 +13,7 @@ const Pokecard = ({name, image, types}) => {
         <Card 
             title={name}
             cover={<img src={image} alt={name} />}>
-             extra={<StarOutlined/>} 
+             extra={<StarButton isFavorite onClick={()=> alert('Clickeado')}/>} 
             <Meta description={typeString}/>
         </Card>
         
